@@ -1,8 +1,10 @@
 require('dotenv').config();
 const express = require('express');
-const routeModules = require('./routes/index');
+const mountRoutes = require('./routes');
 const app = express();
 
+
+mountRoutes(app);
 //Parse JSON 
 app.use(express.json());
 
