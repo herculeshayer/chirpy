@@ -4,10 +4,10 @@ const mongoose = require('mongoose');
 const mountRoutes = require('./routes/index');
 const app = express();
 
-
-mountRoutes(app);
 //Parse JSON 
 app.use(express.json());
+
+mountRoutes(app);
 
 //enable cors for all methods
 app.use((req, res, next) => {
