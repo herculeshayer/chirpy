@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose');
 const routeModules = require('./routes/index');
 const app = express();
 
@@ -14,7 +15,14 @@ app.use((req, res, next) => {
     next();
 })
 
-
+mongoose.connect(process.env.DATABASE_URL, (err) => {
+    if(err) {
+        console.log(err);
+    }
+})
+mongoose.connection.once('connection', (res) => {
+    console.log(res);
+})
 
 app.get('/', (req, res) => {
     res.send('hi')
