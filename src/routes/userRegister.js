@@ -1,8 +1,10 @@
 const express = require('express');
+const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 const User = require('../models/users');
 
+//Get all users
 router.get('/', async ( req , res ) => {
     // console.log(users.findById(req.params.id));
     try {
@@ -14,19 +16,39 @@ router.get('/', async ( req , res ) => {
     // res.send('userRegister');
 })
 
-router.post('/', ( req, res ) => {
-    const { username, email, password } = req.body;
-    const newUser = new User({
-        username: username,
-        email: email,
-        password: password
-    })
+/*
+    new user is created following User model
+    password is hashed using bcryptjs
+        password is saved to users database
+*/
+router.post('/', async ( req, res ) => {
+    const { username, email, password: plainTextPassword } = req.body;
+    if(plainTextPassword.length < 6) {
+        res.json({message: "Password length needs to be greater than 5."})
+    }
     try {
-        const addNewUser = newUser.save();
-        res.status(201).json(addNewUser);
+        const password = await bcrypt.hash(plainTextPassword, 10);
+        const newUser = new User({
+            username: username,
+            email: email,
+            password: password
+        })
+        const addNewUser = newUser.save((err) => {
+            if(err) {
+                return res.send(err)
+            }
+            console.log(addNewUser);
+            return res.json({message: "User Successfully Created!"})
+        });
+        // console.log(addNewUser)
+        // res.status(201).json(addNewUser);
     } catch (error) {
-        res.status(400).json({message: error});
+        if(error.code === 11000) {
+            console.log('hit');
+            res.json({message: 'User already exists'})
+        }
         throw error;
+        // res.status(400).json({message: error});
     }
 })
 
