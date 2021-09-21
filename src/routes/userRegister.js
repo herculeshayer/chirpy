@@ -33,13 +33,23 @@ router.post('/', async ( req, res ) => {
             email: email,
             password: password
         })
-        const addNewUser = newUser.save((err) => {
+        const addNewUser = await newUser.save((err) => {
             if(err) {
                 return res.send(err)
             }
-            console.log(addNewUser);
-            return res.json({message: "User Successfully Created!"})
+            console.log("User Successfully Created!");
+            // return res.json({message: })
         });
+        console.log(addNewUser)
+        // return res.json( { user : addNewUser } )
+        const user = await User.findOne( { username: `${username}` });
+        if(user) {
+            req.session.userID = user._id;
+            console.log(req.session);
+            return res.json({ session: req.session }); //rememeber to redirect to homepage
+        }
+        res.redirect('/register');
+
         // console.log(addNewUser)
         // res.status(201).json(addNewUser);
     } catch (error) {
