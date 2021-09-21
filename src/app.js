@@ -1,11 +1,29 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+
+
 const mountRoutes = require('./routes/index');
 const app = express();
 
+const oneDay = 1000 * 60 * 60 * 24;
+
 //Parse JSON 
 app.use(express.json());
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    store: MongoStore.create({
+        mongoUrl: process.env.DATABASE_URL
+    }),
+    resave: false,
+    saveUninitialized: false,
+    cookie: { 
+        maxAge: oneDay
+    }
+}))
 
 mountRoutes(app);
 
