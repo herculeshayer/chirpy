@@ -6,14 +6,17 @@ const MongoStore = require('connect-mongo');
 
 
 const mountRoutes = require('./routes/index');
+const cookieParser = require('cookie-parser');
 const app = express();
 
 const oneDay = 1000 * 60 * 60 * 24;
 
 //Parse JSON 
 app.use(express.json());
+app.use(cookieParser());
 
 app.use(session({
+    name: process.env.SESSION_NAME,
     secret: process.env.SESSION_SECRET,
     store: MongoStore.create({
         mongoUrl: process.env.DATABASE_URL
@@ -35,6 +38,8 @@ app.use((req, res, next) => {
     next();
 })
 
+
+
 mongoose.connect(process.env.DATABASE_URL, (err) => {
     if(err) {
         console.log(err);
@@ -43,6 +48,8 @@ mongoose.connect(process.env.DATABASE_URL, (err) => {
 mongoose.connection.once('connection', (res) => {
     console.log(res);
 })
+
+
 
 app.get('/', (req, res) => {
     res.send('hi')

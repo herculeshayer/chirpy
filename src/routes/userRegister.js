@@ -4,6 +4,8 @@ const router = express.Router();
 
 const User = require('../models/users');
 
+
+
 //Get all users
 router.get('/', async ( req , res ) => {
     // console.log(users.findById(req.params.id));
@@ -40,16 +42,20 @@ router.post('/', async ( req, res ) => {
             console.log("User Successfully Created!");
             // return res.json({message: })
         });
-        console.log(addNewUser)
+        // console.log(addNewUser)
+        // res.json({message: addNewUser})
+        // res.redirect('/home')
         // return res.json( { user : addNewUser } )
-        const user = await User.findOne( { username: `${username}` });
-        if(user) {
-            req.session.userID = user._id;
-            console.log(req.session);
-            return res.json({ session: req.session }); //rememeber to redirect to homepage
-        }
-        res.redirect('/register');
-
+        // const usernameDB = await User.findOne( { username: `${req.body.username}` });
+        // console.log(usernameDB);
+        // if(usernameDB) {
+        //     req.session.userID = usernameDB._id.toString();
+        //     console.log(req.session.userID);
+        //     return res.json({ session: req.session }); //rememeber to redirect to homepage
+        // } else {
+        //     return res.redirect('/register');
+        // }
+        return res.redirect('/login');
         // console.log(addNewUser)
         // res.status(201).json(addNewUser);
     } catch (error) {

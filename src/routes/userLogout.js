@@ -1,22 +1,21 @@
+require('dotenv').config();
 const express = require('express');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 
 const router = express.Router();
 
-const redirectLogin = (req, res, next) => {
-    if(!req.session.userID) {
-        res.redirect('/login')
-    } else {
-        next();
-    }
-}
 
-router.get('/', redirectLogin, (req, res) => {
+
+router.get('/',  (req, res) => {
     res.send('userlogout');
 })
 router.post('/', async (req, res) => {
-    
+    req.session.destroy(err=> {
+        if(err) {
+            console.log(err)
+        }
+        res.clearCookie(process.env.SESSION_NAME)
+        res.redirect('/login')
+    })
 })
 
 module.exports = router;
