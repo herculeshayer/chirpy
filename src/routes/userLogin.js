@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 
 const User = require('../models/users');
+const { redirectHome } = require('../middleware/redirect');
 
 const router = express.Router();
 
@@ -9,7 +10,8 @@ const router = express.Router();
 router.get('/',  (req, res) => {
 res.json({ sesh: req.session });
 })
-router.post('/', async (req, res) => {
+
+router.post('/', redirectHome, async (req, res) => {
     const { username, password: plainTextPassword } = req.body;
     // console.log(req.session);
     try {
@@ -19,7 +21,7 @@ router.post('/', async (req, res) => {
             if(await bcrypt.compare(plainTextPassword, user.password)) {
                 req.session.userID = user._id.toString();
                 // console.log(req.session.userID);
-                return res.json({sesh: req.session});
+                return res.status(200).json({message: "Login Successful"});
             }
         } else {
             res.redirect('/login');

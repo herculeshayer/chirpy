@@ -15,6 +15,10 @@ const oneDay = 1000 * 60 * 60 * 24;
 app.use(express.json());
 app.use(cookieParser());
 
+/* 
+    express session - save user sessions
+        user sessions are saved inside mongodb chirpy as collection sessions
+*/
 app.use(session({
     name: process.env.SESSION_NAME,
     secret: process.env.SESSION_SECRET,
@@ -28,6 +32,14 @@ app.use(session({
     }
 }))
 
+/*
+    what: mount all endpoints
+    why: this is a more streamline solution
+        . instead of requiring several routes, 
+        we define the routes in index.js &
+        export them 
+*/
+
 mountRoutes(app);
 
 //enable cors for all methods
@@ -37,8 +49,6 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Credentials", true)
     next();
 })
-
-
 
 mongoose.connect(process.env.DATABASE_URL, (err) => {
     if(err) {
@@ -50,12 +60,12 @@ mongoose.connection.once('connection', (res) => {
 })
 
 
-
 app.get('/', (req, res) => {
     res.send('hi')
 })
 
-app.listen( process.env.PORT, () => {
+const server = app.listen( process.env.PORT, () => {
     console.log(`listening on port: ${process.env.PORT}`)
 })
 
+module.exports = server;
