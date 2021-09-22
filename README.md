@@ -1,5 +1,7 @@
 # Chirpy - Twitter Backend Clone 
 
+Heroku : https://chirpy-twitter-clone.herokuapp.com/
+
 If you don't want to install locally, project is hosted on :
 You just need a API Design tool to test endpoints: https://reqbin.com/
 
