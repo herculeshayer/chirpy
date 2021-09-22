@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
             console.log(err)
         }
         res.clearCookie(process.env.SESSION_NAME)
-        res.redirect('/login')
+        res.json({message: "User Successfully Logged Out"})
     })
 })
 
