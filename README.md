@@ -21,9 +21,11 @@ An application backend similar to twitter. There is no frontend, this applicatio
 
 - git clone project
 - go into project directory
-- npm install && npm run start
+- npm install
+- create a .env file and add data similar to example.env.txt
+- npm run start
 - go to localhost:PORT_NUMBER in browser
-- use insomnia or whatever api test tool you'd like
+- use insomnia or whatever api test tool you'd like to test endpoints
 
 ### Screenshots
 ![register](https://user-images.githubusercontent.com/64183136/134280549-f64a9ded-ae7a-4b5b-b188-88b85fb8a38c.jpg)
