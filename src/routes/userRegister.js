@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 const User = require('../models/users');
+const { response } = require('express');
 
 
 
@@ -55,15 +56,12 @@ router.post('/', async ( req, res ) => {
         // } else {
         //     return res.redirect('/register');
         // }
-        return res.redirect('/login');
+        
+        res.status(201).json({message: 'User Successfully Created!', status: addNewUser})
         // console.log(addNewUser)
         // res.status(201).json(addNewUser);
     } catch (error) {
-        if(error.code === 11000) {
-            console.log('hit');
-            res.json({message: 'User already exists'})
-        }
-        throw error;
+        res.status(500).json({error: error})
         // res.status(400).json({message: error});
     }
 })
