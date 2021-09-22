@@ -1,6 +1,7 @@
 /*
-    
-
+    middleware that checks if the user has a sessionID or not
+    if present, user is redirected to /home
+    if not present, user is redirected to /login
 */
 
 
