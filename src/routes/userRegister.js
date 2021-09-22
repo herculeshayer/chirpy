@@ -3,20 +3,16 @@ const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 const User = require('../models/users');
-const { response } = require('express');
-
 
 
 //Get all users
 router.get('/', async ( req , res ) => {
-    // console.log(users.findById(req.params.id));
     try {
         const userList = await User.find();
         res.status(200).json(userList);
     } catch (error) {
         throw error;
     }
-    // res.send('userRegister');
 })
 
 /*
@@ -41,28 +37,15 @@ router.post('/', async ( req, res ) => {
                 return res.send(err)
             }
             console.log("User Successfully Created!");
-            // return res.json({message: })
+            
         });
-        // console.log(addNewUser)
-        // res.json({message: addNewUser})
-        // res.redirect('/home')
-        // return res.json( { user : addNewUser } )
-        // const usernameDB = await User.findOne( { username: `${req.body.username}` });
-        // console.log(usernameDB);
-        // if(usernameDB) {
-        //     req.session.userID = usernameDB._id.toString();
-        //     console.log(req.session.userID);
-        //     return res.json({ session: req.session }); //rememeber to redirect to homepage
-        // } else {
-        //     return res.redirect('/register');
-        // }
+        
         
         res.status(201).json({message: 'User Successfully Created!', status: addNewUser})
-        // console.log(addNewUser)
-        // res.status(201).json(addNewUser);
+        
     } catch (error) {
         res.status(500).json({error: error})
-        // res.status(400).json({message: error});
+        
     }
 })
 
