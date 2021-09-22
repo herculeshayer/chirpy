@@ -49,10 +49,9 @@ describe('register POST & login POST test', () => {
                 })
                 .end((err, res) => {
                     res.should.have.status(200);
-                    // res.cookie
+                
                     res.body.should.be.a('object');
                     res.body.should.have.property('message');
-                    
                 done();
                 })
         })
@@ -66,9 +65,7 @@ describe('register POST & login POST test', () => {
                 })
                 .end((err, res) => {
                     res.should.have.status(404);
-                    // res.cookie
-                    // res.body.should.be.a('object');
-                    // res.body.should.have.property('message');
+                    
                     
                 done();
                 })
