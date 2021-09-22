@@ -1,6 +1,9 @@
 # Chirpy - Twitter Backend Clone 
 
 Heroku : https://chirpy-twitter-clone.herokuapp.com/
+- Check POST routes for /register, /login, and /logout i.e. https://chirpy-twitter-clone.herokuapp.com/register
+- Check GET route for /home i.e. https://chirpy-twitter-clone.herokuapp.com/home
+    - Note: Access will only be allowed with valid user
 
 If you don't want to install locally, project is hosted on :
 You just need a API Design tool to test endpoints: https://reqbin.com/
