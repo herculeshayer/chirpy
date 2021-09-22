@@ -8,6 +8,15 @@ const router = express.Router();
 router.get('/',  (req, res) => {
     res.send('userlogout');
 })
+/*
+    destroys user session cookie,
+    allowing user to logout
+
+    when user logs out, their session key will be deleted
+    this is to prevent unpriviledged users from accessing
+    priviledged information.
+
+*/
 router.post('/', async (req, res) => {
     req.session.destroy(err=> {
         if(err) {

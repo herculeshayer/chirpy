@@ -6,7 +6,11 @@ const User = require('./../models/users');
 
 const router = express.Router();
 
+/*
+    access priviledged information upon login.
+    users 
 
+*/
 
 router.get('/', async (req, res) => {
     try {
