@@ -8,11 +8,11 @@ Heroku : https://chirpy-twitter-clone.herokuapp.com/
 If you don't want to install locally, project is hosted on :
 You just need a API Design tool to test endpoints: https://reqbin.com/
 
-### Application Description
+## Application Description
 
 An application backend similar to twitter. There is no frontend, this application requires the use of a API design tool
 
-### How to install locally
+## How to install locally
 
 - have node installed or https://nodejs.org/en/ for details on how to instal
 - have mongodb installed or https://docs.mongodb.com/manual/installation/ for details on how to install
@@ -27,7 +27,7 @@ An application backend similar to twitter. There is no frontend, this applicatio
 - go to localhost:PORT_NUMBER in browser
 - use insomnia or whatever api test tool you'd like to test endpoints
 
-### Screenshots
+## Screenshots
 ![register](https://user-images.githubusercontent.com/64183136/134280549-f64a9ded-ae7a-4b5b-b188-88b85fb8a38c.jpg)
 
 ![login](https://user-images.githubusercontent.com/64183136/134280560-5e158b64-a121-4a58-bc78-97b1592fcd28.jpg)
