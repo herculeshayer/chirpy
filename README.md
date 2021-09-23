@@ -5,27 +5,34 @@ Heroku : https://chirpy-twitter-clone.herokuapp.com/
 - Check GET route for /home i.e. https://chirpy-twitter-clone.herokuapp.com/home
     - Note: Access will only be allowed with valid user
 
-If you don't want to install locally, project is hosted on :
+If you don't want to install locally, project is hosted on Heroku : https://chirpy-twitter-clone.herokuapp.com/
+
 You just need a API Design tool to test endpoints: https://reqbin.com/
 
 ## Application Description
 
-An application backend similar to twitter. There is no frontend, this application requires the use of a API design tool
+An application backend similar to twitter. There is no frontend, this application requires the use of an API design tool
 
 ## How to install locally
 
-- have node installed or https://nodejs.org/en/ for details on how to instal
-- have mongodb installed or https://docs.mongodb.com/manual/installation/ for details on how to install
-- install git or https://git-scm.com/downloads
-- install insomnia https://insomnia.rest/download or use https://reqbin.com/
+### Software Installation
 
-- git clone project
-- go into project directory
-- npm install
-- create a .env file and add data similar to example.env.txt
-- npm run start
-- go to localhost:PORT_NUMBER in browser
-- use insomnia or whatever api test tool you'd like to test endpoints
+You'll need the following software to use this application:
+
+1. Node:  https://nodejs.org/en/ 
+2. MongoDB: https://docs.mongodb.com/manual/installation/ 
+3. Git:  https://git-scm.com/downloads
+4. API Design Tool: Insomnia https://insomnia.rest/download or use a web-based API tester https://reqbin.com/
+
+### Steps: 
+
+1. Run in terminal: git clone _project_url_
+1. Go into project directory
+1. Run in terminal: npm install
+1. Create a .env file and add data similar to example.env.txt
+1. Run in terminal: npm run start
+1. Go to localhost:PORT_NUMBER in browser
+1. Use api test tool to test endpoints
 
 ## Screenshots
 ![register](https://user-images.githubusercontent.com/64183136/134280549-f64a9ded-ae7a-4b5b-b188-88b85fb8a38c.jpg)
