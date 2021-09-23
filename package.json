@@ -4,9 +4,10 @@
   "description": "twitter-clone",
   "main": "src/app.js",
   "scripts": {
-    "test": "mocha src/tests --timeout 10000",
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+
+    "dev": "nodemon src/app.js",
+    "test": "mocha src/tests --exit"
   },
   "repository": {
     "type": "git",
