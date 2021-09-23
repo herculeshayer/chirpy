@@ -38,6 +38,8 @@ You'll need the following software to use this application:
 1. Go to localhost:PORT_NUMBER in browser
 1. Use api test tool to test endpoints
 
+If there are any issues, email owner of repo @ hhhayer@gmail.com
+
 ## Screenshots
 ![register](https://user-images.githubusercontent.com/64183136/134280549-f64a9ded-ae7a-4b5b-b188-88b85fb8a38c.jpg)
 
