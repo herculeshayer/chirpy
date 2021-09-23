@@ -1,6 +1,6 @@
 # Chirpy - Twitter Backend Clone 
 
-*** Application is hosted using a free-tier Heroku dyno, this means the server enters an idle mode when inactive--allow a few extra seconds for a response, thank you *** 
+**Application is hosted using a free-tier Heroku dyno, this means the server enters an idle mode when inactive--allow a few extra seconds for a response, thank you** 
 
 Heroku : https://chirpy-twitter-clone.herokuapp.com/ 
 - Check POST routes for /register, /login, and /logout i.e. https://chirpy-twitter-clone.herokuapp.com/register
