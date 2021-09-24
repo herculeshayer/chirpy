@@ -46,12 +46,5 @@ You'll need the following software to use this application:
 If there are any issues, email owner of repo @ hhhayer@gmail.com
 
 ## Screenshots
-![register](https://user-images.githubusercontent.com/64183136/134280549-f64a9ded-ae7a-4b5b-b188-88b85fb8a38c.jpg)
-
-![login](https://user-images.githubusercontent.com/64183136/134280560-5e158b64-a121-4a58-bc78-97b1592fcd28.jpg)
-
-![home](https://user-images.githubusercontent.com/64183136/134280566-e1fa0043-9008-419f-9d12-c97f7a8a0db5.jpg)
-
-![logout](https://user-images.githubusercontent.com/64183136/134280572-f45dcb93-54e9-4ba6-80aa-35df49681164.jpg)
-
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/d57XgrL"><a href="//imgur.com/a/d57XgrL">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+Screenshots of API endpoints: hosted on Imgur
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/d57XgrL"><a href="//imgur.com/a/d57XgrL">View post on imgur.com</a></blockquote>
