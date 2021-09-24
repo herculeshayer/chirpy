@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
         const userID = req.session.userID;
 
         const recipientUsername = await Users.findOne({ username: req.body.messages[0].recipient});
-        // console.log(req.body.messages[0].recipient)
+        
         console.log(recipientUsername)
         if(!recipientUsername) {
             return res.status(404).json({message: "User does not exist, please try again"});
