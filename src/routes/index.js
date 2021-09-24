@@ -9,7 +9,7 @@ const userRegister = require('./userRegister');
 const userLogout = require('./userLogout');
 const userHome = require('./userHome');
 const userTweet = require('./userTweet');
-const userDirectMessage = require('./userDirectMessage');
+const userChat = require('./userChat');
 
 module.exports = app => {
     app.use('/login', userLogin);
@@ -17,5 +17,5 @@ module.exports = app => {
     app.use('/home', userHome);
     app.use('/logout', userLogout);
     app.use('/home/tweet', userTweet);
-    app.use('/home/chat', userDirectMessage);
+    app.use('/home/chat', userChat);
 }
