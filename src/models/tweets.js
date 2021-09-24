@@ -6,7 +6,7 @@ const TweetSchema = mongoose.Schema({
         required: true,
     },
     tweets: [{
-        tweet: {
+        text: {
             type: String,
             trim: true,
             minLength: 1,
