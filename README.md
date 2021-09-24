@@ -3,8 +3,11 @@
 **Application is hosted using a free-tier Heroku dyno, this means the server enters an idle mode when inactive--allow a few extra seconds for a response, thank you** 
 
 Heroku : https://chirpy-twitter-clone.herokuapp.com/ 
-- Check POST routes for /register, /login, and /logout i.e. https://chirpy-twitter-clone.herokuapp.com/register
-- Check GET route for /home i.e. https://chirpy-twitter-clone.herokuapp.com/home
+- Check POST routes for /register, /login, /logout, /home/tweet, /home/chat
+-       i.e. https://chirpy-twitter-clone.herokuapp.com/register
+
+- Check GET route for /home, /home/tweet, /home/tweet/:id 
+-       i.e. https://chirpy-twitter-clone.herokuapp.com/home
     - Note: Access will only be allowed with valid user
 
 If you don't want to install locally, project is hosted on Heroku : https://chirpy-twitter-clone.herokuapp.com/
@@ -33,10 +36,12 @@ You'll need the following software to use this application:
 1. Run in terminal: git clone _project_url_
 1. Go into project directory
 1. Run in terminal: npm install
-1. Create a .env file and add data similar to example.env.txt
+1. Create a .env file and add data similar to .env.example
 1. Run in terminal: npm run start
 1. Go to localhost:PORT_NUMBER in browser
 1. Use api test tool to test endpoints
+
+1. To run tests you'll need to create a .env.test file, follow the placeholders in the .env.test.example file
 
 If there are any issues, email owner of repo @ hhhayer@gmail.com
 
@@ -48,3 +53,5 @@ If there are any issues, email owner of repo @ hhhayer@gmail.com
 ![home](https://user-images.githubusercontent.com/64183136/134280566-e1fa0043-9008-419f-9d12-c97f7a8a0db5.jpg)
 
 ![logout](https://user-images.githubusercontent.com/64183136/134280572-f45dcb93-54e9-4ba6-80aa-35df49681164.jpg)
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/d57XgrL"><a href="//imgur.com/a/d57XgrL">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
