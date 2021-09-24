@@ -1,5 +1,5 @@
 const express = require('express');
-const bcrypt = require('bcryptjs');
+
 
 const User = require('./../models/users');
 
@@ -8,15 +8,14 @@ const router = express.Router();
 
 /*
     access priviledged information upon login.
-    users 
+        user info is shown as html as a visual aid  
 
 */
 
 router.get('/', async (req, res) => {
     try {
         const user = await User.findOne({ _id: req.session.userID });
-        // console.log(req.session)
-        // console.log(user);
+        
 
         res.send(`
         <h1>Home</h1>
@@ -31,8 +30,6 @@ router.get('/', async (req, res) => {
 
     
 })
-router.post('/', async (req, res) => {
-    
-})
+
 
 module.exports = router;
