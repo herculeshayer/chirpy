@@ -104,6 +104,8 @@ router.post('/', async (req, res) => {
  *      Have tried a number of ways to select & update tweet
  *      Haven't been able to work it out
  * 
+ *      ****At the moment, patch does not work**** 
+ * 
  */
 
 router.patch('/:id', async (req,res) => {
@@ -115,46 +117,10 @@ router.patch('/:id', async (req,res) => {
 
         const usersTweets = await Tweets.findByIdAndUpdate({ "tweets.$": id }, {
             text: req.body.text
-        }).toString()
+        })
         
-        // console.log(tweet, userID, id);
-        // const usersTweets = await Tweets.updateOne({
-        //     userID : userID,
-        // }, {
-            
-        //     $set: {
-        //         'tweets.$': req.body.tweets
-        //     }
-        // }, {
-        //     new: true
-        // })
-
-        // const usersTweets = await Tweets.find({ userID : userID,
-        //     "tweets._id" : ObjectId(id)},
-        //     {
-        //         "$set": {
-        //             "tweets.$": req.body.text
-        //         }
-        //     }
-        // )
-
-
-        // const userOfTweets = await Tweets.find({ userID : userID });
-        // var allTweetsMadeByUser = userOfTweets[0].tweets;
+    
         
-        // console.log(allTweetsMadeByUser.length)
-
-        // let oneTweet;
-        // for(let i = 0; i < allTweetsMadeByUser.length; i++) {
-        //     if(allTweetsMadeByUser[i]._id.toString() === id) {
-        //         // console.log('hio')
-        //         allTweetsMadeByUser[i].text = req.body.text;
-
-        //         oneTweet = allTweetsMadeByUser[i].text;
-        //         break;
-        //     }
-        // }
-        // console.log(oneTweet)
         console.log(usersTweets)
         res.status(200).json({tweet: usersTweets})
 
@@ -169,6 +135,8 @@ router.patch('/:id', async (req,res) => {
 /**
  * Delete user
  * Tweet
+ * 
+ *      ***Currently, does not work***
  */
 
 router.delete('/:id', async (req, res) => {
