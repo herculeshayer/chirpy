@@ -11,8 +11,7 @@ router.get('/', async (req, res) => {
         const userTweets = await Tweets.find({ userID : userID })
         console.log(userTweets[0].tweets[12].tweet)
         res.status(200).json({
-            tweet: userTweets[0].tweets[12].tweet, 
-            date: userTweets[0].tweets[12].date
+            tweet: userTweets[0].tweets
         })
     } catch (error) {
         if(error) {
