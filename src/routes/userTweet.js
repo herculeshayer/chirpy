@@ -100,25 +100,62 @@ router.post('/', async (req, res) => {
 /**
  *  Find tweet made by user by ID and update
  * 
+ *  ISSUE: Patching a tweet, leads to the update of entire tweets array
+ *      Have tried a number of ways to select & update tweet
+ *      Haven't been able to work it out
+ * 
  */
 
 router.patch('/:id', async (req,res) => {
-    const { tweet } = req.body;
-    const { userID } = req.session;
-    const { id } = req.params;
-
+    
+    
     try {
-        console.log(tweet, userID, id);
-        const usersTweets = await Tweets.findOneAndUpdate({
-            userID : userID,
-        }, {
-            $set: {
-                tweets: {
-                    tweet : tweet
-                }
-            }
-        })
+        const { userID } = req.session;
+        const { id } = req.params;
 
+        const usersTweets = await Tweets.findByIdAndUpdate({ "tweets.$": id }, {
+            text: req.body.text
+        }).toString()
+        
+        // console.log(tweet, userID, id);
+        // const usersTweets = await Tweets.updateOne({
+        //     userID : userID,
+        // }, {
+            
+        //     $set: {
+        //         'tweets.$': req.body.tweets
+        //     }
+        // }, {
+        //     new: true
+        // })
+
+        // const usersTweets = await Tweets.find({ userID : userID,
+        //     "tweets._id" : ObjectId(id)},
+        //     {
+        //         "$set": {
+        //             "tweets.$": req.body.text
+        //         }
+        //     }
+        // )
+
+
+        // const userOfTweets = await Tweets.find({ userID : userID });
+        // var allTweetsMadeByUser = userOfTweets[0].tweets;
+        
+        // console.log(allTweetsMadeByUser.length)
+
+        // let oneTweet;
+        // for(let i = 0; i < allTweetsMadeByUser.length; i++) {
+        //     if(allTweetsMadeByUser[i]._id.toString() === id) {
+        //         // console.log('hio')
+        //         allTweetsMadeByUser[i].text = req.body.text;
+
+        //         oneTweet = allTweetsMadeByUser[i].text;
+        //         break;
+        //     }
+        // }
+        // console.log(oneTweet)
+        console.log(usersTweets)
         res.status(200).json({tweet: usersTweets})
 
 
@@ -134,14 +171,20 @@ router.patch('/:id', async (req,res) => {
  * Tweet
  */
 
-router.delete('/:id', (req, res) => {
-    const { id } = req.params;
-    const { userID } = req.session;
+router.delete('/:id', async (req, res) => {
+    
 
     try {
-        
+        const { id } = req.params;
+        const { userID } = req.session;
+
+        const user = await Tweets.findOneAndDelete( {"userID.tweets.$.id" : id})
+        res.send(user);
+
     } catch (error) {
-        
+
+        res.status(500).json({message: `Error: ${error}`})
+
     }
 })
 
