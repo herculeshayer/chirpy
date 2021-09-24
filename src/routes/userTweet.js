@@ -11,10 +11,10 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     const userID = req.session.userID;
-    const { tweet } = req.body;
+    const { tweet } = req.body.tweets;
     const newTweet = new Tweets({
         userID: userID,
-        tweets: tweet.toString()
+        tweets: req.body.tweets
     })
     try {
         const exists = await Tweets.findOne({ userID : userID })
@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
         if(exists) {
             const addTweet = await Tweets.findOneAndUpdate(userID, {
                 $push: {
-                    tweet: tweet.toString(),
+                    tweets: req.body.tweets
                 }
             })
             res.status(201).json({ message: 'Tweet Added', tweet: addTweet })
