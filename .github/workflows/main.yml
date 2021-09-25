@@ -45,7 +45,7 @@ jobs:
 
       steps:
         - name: check env vars
-          run: ${{ secrets.HEROKU_API_KEY }} , ${{ secrets.HEROKU_APP_NAME }}
+          run: echo ${{ secrets.HEROKU_API_KEY }} , ${{ secrets.HEROKU_APP_NAME }}
 
         - name: Checkout
           uses: actions/checkout@v2
