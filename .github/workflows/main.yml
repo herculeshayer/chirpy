@@ -33,6 +33,6 @@ jobs:
           npm install
           npm test
         env: 
-          DATABASE_URL: ${{ env.DATEBASE_URL }}
+          DATABASE_URL: ${{ env.DATABASE_URL }}
           SESSION_SECRET: ${{ env.SESSION_SECRET }}
           SESSION_NAME: ${{ env.SESSION_NAME }}
