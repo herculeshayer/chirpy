@@ -42,28 +42,28 @@ describe('test chat GET && POST', ()=> {
         })
     })
 
-    describe('POST chat message to user', () => {
-        it('send message to user', done => {
-            let data = JSON.stringify({
-                messages: [
-                    {
-                        recipient: "megan",
-                        text: "are you there megan?"
-                    }
-                ]
-            })
+//     describe('POST chat message to user', () => {
+//         it('send message to user', done => {
+//             let data = JSON.stringify({
+//                 messages: [
+//                     {
+//                         recipient: "megan",
+//                         text: "are you there megan?"
+//                     }
+//                 ]
+//             })
             
-            chai.request(server)
-                .post('/home/chat')
-                .send(data)
-                .end((err, res) => {
-                    if(err) {
-                        console.log(err);
-                    }
-                    expect(res).to.have.a.status(201);
-                    done();
-                })
+//             chai.request(server)
+//                 .post('/home/chat')
+//                 .send(data)
+//                 .end((err, res) => {
+//                     if(err) {
+//                         console.log(err);
+//                     }
+//                     expect(res).to.have.a.status(201);
+//                     done();
+//                 })
 
-        })
-    })
+//         })
+//     })
 })
