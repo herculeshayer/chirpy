@@ -1,5 +1,5 @@
-process.env.NODE_ENV = 'test';
-require('dotenv').config({ path: `.env.${process.env.NODE_ENV}`, silent: true });
+// process.env.NODE_ENV = 'test';
+// require('dotenv').config({ path: `.env.${process.env.NODE_ENV}`, silent: true });
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
