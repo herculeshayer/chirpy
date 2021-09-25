@@ -1,5 +1,7 @@
 # Chirpy - Twitter Backend Clone 
 
+[![Chirpy CI/CD](https://github.com/herculeshayer/chirpy/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/herculeshayer/chirpy/actions/workflows/main.yml)
+
 **Application is hosted using a free-tier Heroku dyno, this means the server enters an idle mode when inactive--allow a few extra seconds for a response, thank you** 
 
 Heroku : https://chirpy-twitter-clone.herokuapp.com/ 
