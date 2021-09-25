@@ -44,8 +44,7 @@ jobs:
       runs-on: ubuntu-latest
 
       steps:
-        - name: check env vars
-          run: echo ${{ secrets.HEROKU_API_KEY }} , ${{ secrets.HEROKU_APP_NAME }}
+        
 
         - name: Checkout
           uses: actions/checkout@v2
