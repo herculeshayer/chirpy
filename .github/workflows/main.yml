@@ -1,8 +1,8 @@
 name: Chirpy CI/CD
 
 on:
-  push:
-    branches: [main]
+  # push:
+  #   branches: [main]
   pull_request:
     branches: [main]
 
@@ -36,3 +36,23 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
           SESSION_NAME: ${{ secrets.SESSION_NAME }}
+
+  deploy:
+
+      name: Deploy
+      needs: [test]
+      runs-on: ubuntu-latest
+
+      steps:
+        
+        - name: Checkout
+          uses: actions/checkout@v2
+          with:
+              fetch-depth: 0
+
+          
+        - name: Add remote origin to Heroku
+          run: git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+
+        - name: Deploy code to Heroku 
+          run: git push -f heroku HEAD:main
