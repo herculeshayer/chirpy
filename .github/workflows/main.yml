@@ -50,11 +50,9 @@ jobs:
           with:
               fetch-depth: 0
 
-        - name: echo github branch
-          run: echo ${{ github.head_ref }}
           
         - name: Add remote origin to Heroku
           run: git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
 
         - name: Deploy code to Heroku 
-          run: git push --force heroku main
+          run: git push heroku ${{ github.head_ref }}:main
